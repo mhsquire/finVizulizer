@@ -3,12 +3,20 @@ version: 2.1
 orbs:
   python: circleci/python@2.0.3
 
+commands:
+  install-poetry:
+    steps:
+      - run:
+          name: "install poetry"
+          command: pip install poetry
+
 jobs:
   run-pytest-bdd-job:
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
+      - install-poetry
       - python/install-packages:
           pkg-manager: poetry
 
