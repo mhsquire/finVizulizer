@@ -9,9 +9,9 @@ commands:
           name: "Install the latest poetry"
           command: |
               if [ "$(which pip3)" = "/usr/local/bin/pip3" ]; then
-                  sudo pip3 install poetry
+                  sudo pip install poetry
               else
-                  pip3 install poetry
+                  pip install poetry
               fi
 
   install-packages:
