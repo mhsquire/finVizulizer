@@ -9,6 +9,11 @@ commands:
       - run:
           name: "install poetry"
           command: pip install poetry
+  upgrade-packages:
+    steps:
+      - run:
+          name: "upgrade packages via poetry"
+          command: poetry install --no-ansi
   install-pytest:
     steps:
       - run:
@@ -27,9 +32,7 @@ jobs:
     steps:
       - checkout
       - install-poetry
-      - python/install-packages:
-          pkg-manager: poetry
-      - install-pytest
+      - upgrade-packages
       - run-pytest
 
 workflows:
