@@ -9,6 +9,11 @@ commands:
       - run:
           name: "install poetry"
           command: pip install poetry
+  install-pytest:
+    steps:
+      - run:
+          name: "install pytest"
+          command: pip install pytest
   run-pytest:
     steps:
       - run:
