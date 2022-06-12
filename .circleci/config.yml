@@ -2,23 +2,8 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-commands:
-  install-poetry:
-    steps:
-      - run:
-          name: "Install the latest poetry"
-          command: |
-              if [ "$(which pip3)" = "/usr/local/bin/pip3" ]; then
-                  sudo pip install poetry
-              else
-                  pip install poetry
-              fi
-
-  install-packages:
-    steps:
-      - run:
-          name: "Install the packages"
-          command: poetry install
+orbs:
+  python: circleci/python@2.0.3
 
 jobs:
   run-pytest-bdd-job:
@@ -27,13 +12,10 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - install-poetry
-      - install-packages
+      - python/install-packages
 
 
 workflows:
   pytest-bdd-workflow:
     jobs:
       - run-pytest-bdd-job
- 
-
