@@ -389,7 +389,7 @@ telegram = ["requests"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "3f709ffa72549b66f338cac9ca25efdf8ed60676ee6bd5a2a3aa65a1db49d1e0"
+content-hash = "7427087268804418687276e4e2cf9b590c2a99c6b3afb53e43dd9ed96472aa76"
 
 [metadata.files]
 atomicwrites = [
