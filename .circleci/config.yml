@@ -23,4 +23,5 @@ jobs:
 workflows:
   pytest-bdd-workflow:
     jobs:
+      - python/test
       - run-pytest-bdd-job
