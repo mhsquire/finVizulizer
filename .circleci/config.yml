@@ -2,21 +2,38 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
-orbs:
-  python: circleci/python@2.0.3
+commands:
+  install-poetry:
+    steps:
+      - run:
+          name: "Install the latest poetry"
+          command: |
+              if [ "$(which pip3)" = "/usr/local/bin/pip3" ]; then
+                  sudo pip3 install poetry
+              else
+                  pip3 install poetry
+              fi
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+  install-packages:
+    steps:
+      - run:
+          name: "Install the packages"
+          command: poetry install
+
 jobs:
   run-pytest-bdd-job:
     docker:
       # replace with your preferred image
       - image: cimg/base:stable
     steps:
-      - python/install-packages
+      - checkout
+      - install-poetry
+      - install-packages
+
+
 workflows:
   pytest-bdd-workflow:
     jobs:
       - run-pytest-bdd-job
-      - python/test 
+ 
 
