@@ -33,6 +33,7 @@ jobs:
       - checkout
       - install-poetry
       - upgrade-packages
+      - install-pytest
       - run-pytest
 
 workflows:
