@@ -29,6 +29,7 @@ jobs:
       - install-poetry
       - python/install-packages:
           pkg-manager: poetry
+      - install-pytest
       - run-pytest
 
 workflows:
