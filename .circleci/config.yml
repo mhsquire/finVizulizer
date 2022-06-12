@@ -9,7 +9,11 @@ commands:
       - run:
           name: "install poetry"
           command: pip install poetry
-
+  run-pytest:
+    steps:
+      - run:
+          name: "run pytest"
+          command: pytest  
 jobs:
   run-pytest-bdd-job:
     docker:
@@ -20,6 +24,7 @@ jobs:
       - install-poetry
       - python/install-packages:
           pkg-manager: poetry
+      - run_pytest
 
 workflows:
   pytest-bdd-workflow:
