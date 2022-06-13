@@ -23,7 +23,7 @@ commands:
     steps:
       - run:
           name: "run pytest"
-          command: poetry run pytest  
+          command: poetry run python -m pytest  
 jobs:
   run-pytest-bdd-job:
     docker:
