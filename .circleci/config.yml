@@ -1,0 +1,42 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@2.0.3
+
+commands:
+  install-poetry:
+    steps:
+      - run:
+          name: "install poetry"
+          command: pip install poetry
+  upgrade-packages:
+    steps:
+      - run:
+          name: "upgrade packages via poetry"
+          command: poetry install --no-ansi
+  install-pytest:
+    steps:
+      - run:
+          name: "install pytest"
+          command: pip install pytest
+  run-pytest:
+    steps:
+      - run:
+          name: "run pytest"
+          command: poetry run python -m pytest  
+jobs:
+  run-pytest-bdd-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/python:3.10.4
+    steps:
+      - checkout
+      - install-poetry
+      - upgrade-packages
+      - install-pytest
+      - run-pytest
+
+workflows:
+  pytest-bdd-workflow:
+    jobs:
+      - run-pytest-bdd-job
