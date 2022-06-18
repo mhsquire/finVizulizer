@@ -1,0 +1,10 @@
+@startuml
+class database
+class database_wrapper
+class request_wrapper
+class requests
+database <- database_wrapper
+requests <- request_wrapper
+parse_table -> request_wrapper
+parse_table -> database_wrapper
+@enduml

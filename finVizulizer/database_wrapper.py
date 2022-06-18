@@ -1,7 +1,7 @@
 from finVizulizer.database import Database
 
-
 # Handles the storage of data for all tickers.
+
 
 class DatabaseWrapper:
 
@@ -13,6 +13,8 @@ class DatabaseWrapper:
             self.db = Database()
 
     def put_ticker(self, ticker_name, data):
+        if not data['name']:
+            return
         self.db.insert(ticker_name, data)
 
     def remove_ticker(self, ticker_name):

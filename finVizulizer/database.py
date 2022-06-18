@@ -1,8 +1,13 @@
 
 
 # stock schema:
-#       name:
-#       ticker:
+#   name:
+#   ticker:
+#   date:
+#   time:
+#   headline:
+#   article_link:
+#   article_sentiment:
 
 
 class Database:
