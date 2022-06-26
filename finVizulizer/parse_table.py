@@ -1,3 +1,4 @@
+import csv
 from bs4 import BeautifulSoup
 from finVizulizer.setup_logger import logger
 
@@ -19,10 +20,9 @@ class ParseTable:
 
     @classmethod
     def parse_news(cls, html_table: BeautifulSoup):
-        parsed_data = []
         date = ""
+        news_list = []
         for row in html_table.findAll("tr"):
-
             datetime = row.td.text.split()
             if len(datetime) > 1:
                 date = datetime[0]
@@ -31,10 +31,7 @@ class ParseTable:
                 time = datetime[0]
 
             headline = row.a.text
-            comma_headline = headline.split(',')
-            if len(comma_headline) > 1:
-                headline = "\\,".join(comma_headline)
-
             link = row.find("a").get("href")
-            parsed_data.append(f'{date},{time},{headline},{link}')
-        return parsed_data
+
+            news_list.append([date, time, headline, link])
+        return news_list

@@ -1,3 +1,7 @@
+import csv
+import json
+import tempfile
+
 import pytest
 from bs4 import BeautifulSoup
 
@@ -40,5 +44,12 @@ class TestParseTable:
         assert news == compare
 
     def test_parse_news(self, example_table, parsed_table):
-        news = pt.parse_news(parsed_table)
-        assert example_table in news
+        json_object = pt.parse_news(parsed_table)
+        print(json_object)
+
+        example_csv = "tests/helpers/parsenews.json"
+        with open(example_csv, "r") as f:
+            freader = json.loads(f.read())
+            print (freader)
+            assert freader == json_object
+

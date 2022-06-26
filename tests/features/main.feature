@@ -12,5 +12,5 @@ Feature: Financial Data
     When the response is parsed
     Then the resulting table records date
     And the resulting table records time
-    And the resulting table records headline
-    And the resuting table records article link
+    And the resulting table records the headline
+    And the resulting table records article link
