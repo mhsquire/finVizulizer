@@ -1,6 +1,6 @@
 from finVizulizer.database import Database
-
 from finVizulizer.setup_logger import logger
+
 # Handles the storage of data for all tickers.
 
 
@@ -15,6 +15,8 @@ class DatabaseWrapper:
             self.db = Database()
 
     def put_ticker(self, ticker_name, data):
+        if not data['name']:
+            return
         self.db.insert(ticker_name, data)
         logger.debug(f"Insert {ticker_name}")
 
