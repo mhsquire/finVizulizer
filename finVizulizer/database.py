@@ -1,5 +1,5 @@
 
-from finVizulizer.setup_logger import logger
+from setup_logger import logger
 # stock schema:
 #   name:
 #   ticker:

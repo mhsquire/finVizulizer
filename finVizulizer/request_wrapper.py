@@ -1,5 +1,5 @@
 import requests
-from finVizulizer.setup_logger import logger
+from setup_logger import logger
 
 
 class RequestWrapper:

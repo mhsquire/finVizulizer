@@ -1,5 +1,5 @@
-from finVizulizer.database import Database
-from finVizulizer.setup_logger import logger
+from database import Database
+from setup_logger import logger
 
 # Handles the storage of data for all tickers.
 

@@ -1,6 +1,5 @@
-import csv
 from bs4 import BeautifulSoup
-from finVizulizer.setup_logger import logger
+from setup_logger import logger
 
 
 class ParseTable:

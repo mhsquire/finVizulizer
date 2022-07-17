@@ -1,5 +1,5 @@
-from finVizulizer.parse_table import ParseTable
-from finVizulizer.sentiment_wrapper import SentimentWrapper
+from parse_table import ParseTable
+from sentiment_wrapper import SentimentWrapper
 from request_wrapper import RequestWrapper
 import pandas as pd
 
