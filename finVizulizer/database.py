@@ -1,4 +1,3 @@
-
 from setup_logger import logger
 # stock schema:
 #   name:
